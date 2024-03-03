@@ -3,25 +3,15 @@
   <footer>
     <button class="is-zap is-big" id="evolution" aria-label="fav"></button>
   </footer>
-    <section>
-        <div class="cards">
+    <section class="card-container">
+        <div class="cards" id="card">
             <article>
-              <img class="side-a" src="./resources/digimons/exVeemon.webp" alt="Digimon_One" />
-              <h2>ExVeemon <span>30</span></h2>
+              <img class="card-side side-a" src="./resources/digimons/veemon.webp" alt="Digimon_One" />
+              <h2>Veemon <span>15</span></h2>
               <div class="choice nope">NOPE</div>
               <div class="choice like">LIKE</div>
             </article>
-      
-            <article>
-              <img src="./resources/digimons/veemon.webp" alt="Digimon_Two" />
-              <h2>Veemon <span>16</span></h2>
-              <div class="choice nope">NOPE</div>
-              <div class="choice like">LIKE</div>
-            </article>
-            <span>
-              No hay más digimons cerca de ti...<br />
-              Vuelve a intentarlo más tarde
-            </span>
+            <span>HOla xd</span>
         </div>
           
     </section>
@@ -83,8 +73,10 @@ section {
     flex-direction: column;
     overflow: hidden;
     position: relative;
-  
+    perspective: 1000px;
 }
+
+
 /*
 footer {
     display: flex;
@@ -172,10 +164,14 @@ footer {
   }
 }
 .cards {
+    background: #2374FF;
     position: relative;
     margin: 0 auto;
     height: 100%;
     width: 100%;
+    transform-style: preserve-3d;
+    transition: transform 2s;
+    
     &>span {
       display: grid;
       place-content: center;
@@ -197,6 +193,8 @@ footer {
       width: 100%;
       height: 100%;
       z-index: 2;
+      display: flex;
+      justify-content: center;
 
       &.go-left {
         transform: translateX(-150%) rotate(-20deg) !important;
@@ -249,8 +247,18 @@ footer {
         height: 100%;
         object-fit: cover;
         filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+        transform: scale(2);  
+        backface-visibility: hidden;
+        position: absolute;
+      }
 
-        transform: scale(2);
+      & .side-b {
+        width: 80%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1);
+        
+        
       }
 
       & h2 {

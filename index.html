@@ -1,20 +1,20 @@
 <link rel="shortcut icon" href="./resources/digi-logo.webp"/>
 <main>
   <footer>
-    <button class="is-zap is-big" aria-label="fav"></button>
-</footer>
+    <button class="is-zap is-big" id="evolution" aria-label="fav"></button>
+  </footer>
     <section>
         <div class="cards">
             <article>
-              <img src="./resources/Veemon.webp" alt="Digimon_One" />
-              <h2>Veemon <span>30</span></h2>
+              <img class="side-a" src="./resources/digimons/exVeemon.webp" alt="Digimon_One" />
+              <h2>ExVeemon <span>30</span></h2>
               <div class="choice nope">NOPE</div>
               <div class="choice like">LIKE</div>
             </article>
       
             <article>
-              <img src="./resources/Gabumon.webp" alt="Digimon_Two" />
-              <h2>Gabumon <span>45</span></h2>
+              <img src="./resources/digimons/veemon.webp" alt="Digimon_Two" />
+              <h2>Veemon <span>16</span></h2>
               <div class="choice nope">NOPE</div>
               <div class="choice like">LIKE</div>
             </article>
@@ -22,7 +22,7 @@
               No hay más digimons cerca de ti...<br />
               Vuelve a intentarlo más tarde
             </span>
-          </div>
+        </div>
           
     </section>
     <footer>
@@ -30,7 +30,6 @@
             <button class="is-fav is-big" aria-label="fav"></button>
     </footer>
 </main>
-
 <style>
     *,*::before, *::after {
     box-sizing: border-box;
@@ -127,13 +126,13 @@ footer {
 footer {
   
   flex-basis: 29.8%;
-    height: 30.8%;
+    height: 33.8%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     margin-left: 3%;
-    gap: 45%;
+    gap: 36%;
     
   & button {
     background: url(./resources/digiIconsPro.webp) no-repeat;
@@ -145,29 +144,28 @@ footer {
     margin: 1px 0px 1px 4px;
 
       &:hover {
-        scale: 1.2;
+        scale: 1.1;
         width: 68px;
       }
 
       &.is-big {
-        background-position: -168px -3px;
-    background-size: 300px;
-    width: 80px;
-    height: 54px;
+        background-position: -234px -6px;
+    background-size: 400px;
+    width: 90px;
+    height: 80px;
     margin-bottom: 3px;
     margin-right: 1px;
-    margin-top: 1.5px;
     filter: contrast(0.9);
 
       }
       &.is-remove{
-        background-position: -48px -5px;
+        background-position: -75px -8px;
       }
       &.is-zap {
-        background-position: -172px -3px;
-    background-size: 425px;
-    height: 82;
-    width: 82px;
+        background-position: -183px -4px;
+    background-size: 450px;
+    height: 84px;
+    width: 86px;
     margin-right: 43%;
     margin-top: 3px;
       }
@@ -186,6 +184,7 @@ footer {
       text-align: center;
       height: 100%;
       z-index: -1;
+      padding:2px;
     }
 
     & article {
@@ -250,6 +249,8 @@ footer {
         height: 100%;
         object-fit: cover;
         filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+
+        transform: scale(2);
       }
 
       & h2 {
@@ -268,7 +269,7 @@ footer {
       }
 
       & span {
-        margin-left: 6px;
+        margin-left: 2px;
         font-size: 18px;
         line-height: 1.4;
         font-weight: 400;
@@ -280,6 +281,38 @@ footer {
 </style>
 
 <script>
+
+  // Evolution
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var buttonEvolution = document.getElementById('evolution');
+    var sideA = document.querySelector('.side-a');
+    var flipping = false;
+  
+    buttonEvolution.addEventListener('click', function() {
+      if (!flipping) {
+        console.log("hi")
+        flipping = true;
+        sidaA.style.transform = 'rotateY(1440deg)'; // Gira 4 veces
+  
+        setTimeout(function() {
+          card.style.transform = 'rotateY(0deg)';
+          flipping = false;
+        }, 20000); // Duración de la animación en milisegundos
+        setTimeout(function() {
+            // Cambia el fondo del lado A al finalizar la animación
+            sideA.style.backgroundImage = "url('https://i.pinimg.com/originals/3e/a2/d2/3ea2d296f6af7c1ca7e8e1f10c73a0c8.png')";
+            sideA.style.backgroundSize = "cover";
+    
+            card.style.transform = 'rotateY(180deg)';
+            flipping = false;
+          }, 2000); // Duración de la animación en milisegundos
+      }
+    });
+  });
+  
+
+  //Swipe
   const DECISION_THRESHOLD = 240
 
   let isAnimating = false
@@ -381,4 +414,6 @@ footer {
 
   document.addEventListener('mousedown', startDrag)
   document.addEventListener('touchstart', startDrag, { passive: true })
+
+
 </script>

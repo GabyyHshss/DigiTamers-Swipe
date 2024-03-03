@@ -11,6 +11,16 @@
               <div class="choice nope">NOPE</div>
               <div class="choice like">LIKE</div>
             </article>
+
+            
+            <article>
+              <img class="card-side side-b"
+              src="./resources/digimons/partsCard/cardB.webp"
+              alt="partB" />              <h2>Veemon <span>15</span></h2>
+              <div class="choice nope">NOPE</div>
+              <div class="choice like">LIKE</div>
+            </article>
+            
             <span>HOla xd</span>
         </div>
           
@@ -73,7 +83,6 @@ section {
     flex-direction: column;
     overflow: hidden;
     position: relative;
-    perspective: 1000px;
 }
 
 
@@ -247,20 +256,15 @@ footer {
         height: 100%;
         object-fit: cover;
         filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
-        transform: scale(2);  
+        transform: scale(2);
         backface-visibility: hidden;
+        display: flex;
         position: absolute;
       }
-
       & .side-b {
-        width: 80%;
-        height: 100%;
-        object-fit: cover;
         transform: scale(1);
-        
-        
+        object-fit: fill;
       }
-
       & h2 {
         color: white;
         position: absolute;
@@ -293,32 +297,33 @@ footer {
   // Evolution
 
   document.addEventListener('DOMContentLoaded', function() {
-    var buttonEvolution = document.getElementById('evolution');
+    let button = document.getElementById('evolution');
+    var card = document.getElementById('card');
     var sideA = document.querySelector('.side-a');
-    var flipping = false;
-  
-    buttonEvolution.addEventListener('click', function() {
-      if (!flipping) {
-        console.log("hi")
-        flipping = true;
-        sidaA.style.transform = 'rotateY(1440deg)'; // Gira 4 veces
-  
-        setTimeout(function() {
-          card.style.transform = 'rotateY(0deg)';
-          flipping = false;
-        }, 20000); // Duración de la animación en milisegundos
-        setTimeout(function() {
-            // Cambia el fondo del lado A al finalizar la animación
-            sideA.style.backgroundImage = "url('https://i.pinimg.com/originals/3e/a2/d2/3ea2d296f6af7c1ca7e8e1f10c73a0c8.png')";
-            sideA.style.backgroundSize = "cover";
     
-            card.style.transform = 'rotateY(180deg)';
-            flipping = false;
-          }, 2000); // Duración de la animación en milisegundos
-      }
+    var flipping = false;
+
+    button.addEventListener('click', function() {
+        if (!flipping) {
+            flipping = true;
+
+            card.style.transform = 'rotateY(1440deg)'; // Gira 4 veces
+
+            setTimeout(function() {
+                card.style.transform = 'rotateY(0deg)';
+                flipping = false;
+            }, 20000); // Duración de la animación en milisegundos
+            setTimeout(function() {
+                // Cambia la imagen del lado A al finalizar la animación
+                sideA.src = 'https://i.pinimg.com/564x/fe/f3/13/fef3132aa75fdfe32940eae007034713.jpg';
+                sideA.style.backgroundSize = "cover";
+                card.style.transform = 'rotateY(180deg)';
+                flipping = false;
+            }, 2000);
+        }
     });
-  });
-  
+});
+
 
   //Swipe
   const DECISION_THRESHOLD = 240

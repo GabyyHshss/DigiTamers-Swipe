@@ -10,7 +10,7 @@
             <article class="container">
               <div class="card">
 
-                <img class="front"
+                <img class="front front-guilmon type" id="Guilmon"
               src="./resources/digimons/Guilmon.webp"
               alt="partB"/>              
               <h2 id="digiName">Guilmon <span id="digiPower">8</span></h2>
@@ -28,7 +28,7 @@
             <article class="container">
               <div class="card">
 
-                <img class="front front-veemon"
+                <img class="front front-veemon type" id="Veemon"
               src="./resources/digimons/veemon.webp"
               alt="partB"/>              
               <h2 id="digiName">Veemon <span id="digiPower">15</span></h2>
@@ -46,7 +46,7 @@
             <article class="container">
               <div class="card">
 
-                <img class="front"
+                <img class="front front-gabumon type" id="Gabumon"
               src="./resources/digimons/Gabumon.webp"
               alt="partB"/>              
               <h2 id="digiName">Gabumon <span id="digiPower">20</span></h2>
@@ -364,6 +364,16 @@ footer {
 
   // Evolution
 
+  /* DIGIMONS */
+  let guilmon = document.querySelector('.front-guilmon')
+  let veemon = document.querySelector('.front-veemon')
+  let gabumon = document.querySelector('.front-gabumon')
+
+  let allDigimons = []
+  allDigimons.push(guilmon);
+  allDigimons.push(veemon);
+  allDigimons.push(gabumon);
+
   document.addEventListener('DOMContentLoaded', function() {
     let evolutionButton = document.getElementById('evolution');
     let card = document.querySelector('.card');
@@ -382,37 +392,32 @@ footer {
     newSpan.textContent = '25';
 
     evolutionButton.addEventListener('click', function() {
-      if (!flipping) {
-        flipping = true;
-        card.style.transform = 'rotateY(1440deg)'; // Gira 4 veces
-        sideB.setAttribute("src", "./resources/digimons/partsCard/cardA.webp");
-        sideB.style.transform = "rotateY(0deg)";
+      console.log("El botón está activado.")
+      let typeDigimons = document.querySelectorAll('.type')
+      let primeraCartaVisible;
+      typeDigimons.forEach(function(typeDigimon){
+        if(isElementVisible(typeDigimon)){
+          primeraCartaVisible = typeDigimon
+        }
+      })
 
-        setTimeout(function() {
-
-          card.style.transform = 'rotateY(0deg)';
-          flipping = false;
-        }, 20000); // Duración de la primera animación
-        
-        setTimeout(function() {
-
-            // Cambia el fondo del lado A al finalizar la animación
-            
-
-            card.style.transform = 'rotateY(180deg)';
-            flipping = false;
-            
-            setTimeout(function() {
-        card.style.transform = 'rotateY(0deg)'; // Otra vuelta completa
-        sideA.setAttribute("src", "./resources/digimons/exVeemon.webp");    
-        sideA.style.transform = "";
-        digiName.textContent='ExVeemon'
-            digiName.appendChild(newSpan);
-        flipping = false;
-      }, 1000); 
-
-          }, 2000); // Duración de la segunda animación
-        }         
+      if (primeraCartaVisible) {
+            // Aquí puedes hacer lo que necesites con la primera carta visible
+            console.log("La primera carta visible es:", primeraCartaVisible);
+        } else {
+            console.log("No se encontró ninguna carta visible.");
+        }
+      
+      // Función para verificar si un elemento es visible en la pantalla
+    function isElementVisible(element) {
+        let rect = element.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
       });
   });
 

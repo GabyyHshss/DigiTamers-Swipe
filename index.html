@@ -3,24 +3,34 @@
   <footer>
     <button class="is-zap is-big" id="evolution" aria-label="fav"></button>
   </footer>
-    <section class="card-container">
-        <div class="cards" id="card">
-            <article>
-              <img class="card-side side-a" src="./resources/digimons/veemon.webp" alt="Digimon_One" />
-              <h2>Veemon <span>15</span></h2>
+    <section>
+        <div class="cards" >
+            <article class="container">
+              <div class="card">
+
+                <img class="front"
+              src="./resources/digimons/veemon.webp"
+              alt="partB"/>              
+              <h2 id="digiName">Veemon <span id="digiPower">15</span></h2>
               <div class="choice nope">NOPE</div>
               <div class="choice like">LIKE</div>
-            </article>
 
+              <img class="back"
+              src="./resources/digimons/partsCard/cardB.webp"
+              alt="partB"/>                          
+
+              </div>
+            </article>
             
+            <!--
             <article>
               <img class="card-side side-b"
               src="./resources/digimons/partsCard/cardB.webp"
-              alt="partB" />              <h2>Veemon <span>15</span></h2>
+              alt="partB"/>              <h2>Veemon <span>15</span></h2>
               <div class="choice nope">NOPE</div>
               <div class="choice like">LIKE</div>
             </article>
-            
+          -->
             <span>HOla xd</span>
         </div>
           
@@ -178,9 +188,7 @@ footer {
     margin: 0 auto;
     height: 100%;
     width: 100%;
-    transform-style: preserve-3d;
-    transition: transform 2s;
-    
+
     &>span {
       display: grid;
       place-content: center;
@@ -261,10 +269,7 @@ footer {
         display: flex;
         position: absolute;
       }
-      & .side-b {
-        transform: scale(1);
-        object-fit: fill;
-      }
+      
       & h2 {
         color: white;
         position: absolute;
@@ -282,14 +287,43 @@ footer {
 
       & span {
         margin-left: 2px;
-        font-size: 18px;
+        font-size: 15px;
         line-height: 1.4;
         font-weight: 400;
       }
     }
 
-  
+    .container {
+      width: 100%;
+    height: 100%;
+    perspective: 1000px;
+    object-fit: cover;
 }
+    .card {
+      height: 100%;
+      width: 100%;
+      position: relative;
+      transition: transform 1500ms;
+      transform-style: preserve-3d;
+}
+
+.front,
+.back {
+  height: 100%;
+  width: 100%;
+  border-radius: 2rem;
+  box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.back {
+  transform: rotateY(180deg);
+  object-fit: fill;
+}
+
+  }
+
 </style>
 
 <script>
@@ -297,33 +331,45 @@ footer {
   // Evolution
 
   document.addEventListener('DOMContentLoaded', function() {
-    let button = document.getElementById('evolution');
-    var card = document.getElementById('card');
-    var sideA = document.querySelector('.side-a');
-    
-    var flipping = false;
+    let evolutionButton = document.getElementById('evolution');
+    let card = document.querySelector('.card');
+    let sideA = document.querySelector('.front');
+    let flipping = false;
 
-    button.addEventListener('click', function() {
-        if (!flipping) {
-            flipping = true;
+    const digiName = document.getElementById('digiName');
+    const digiPower = document.getElementById('digiPower');
 
-            card.style.transform = 'rotateY(1440deg)'; // Gira 4 veces
+    // Crear un nuevo elemento span
+    const newSpan = document.createElement('span')
+    newSpan.textContent = '25';
 
-            setTimeout(function() {
-                card.style.transform = 'rotateY(0deg)';
-                flipping = false;
-            }, 20000); // Duración de la animación en milisegundos
-            setTimeout(function() {
-                // Cambia la imagen del lado A al finalizar la animación
-                sideA.src = 'https://i.pinimg.com/564x/fe/f3/13/fef3132aa75fdfe32940eae007034713.jpg';
-                sideA.style.backgroundSize = "cover";
-                card.style.transform = 'rotateY(180deg)';
-                flipping = false;
-            }, 2000);
-        }
-    });
-});
+    evolutionButton.addEventListener('click', function() {
+      if (!flipping) {
+        flipping = true;
+        card.style.transform = 'rotateY(1440deg)'; // Gira 4 veces
+  
+        setTimeout(function() {
+          card.style.transform = 'rotateY(0deg)';
+          flipping = false;
+        }, 20000); // Duración de la primera animación
+        
+        setTimeout(function() {
 
+            // Cambia el fondo del lado A al finalizar la animación
+            sideA.setAttribute("src", "./resources/digimons/exVeemon.webp");
+            digiName.textContent='ExVeemon'
+            digiName.appendChild(newSpan);
+
+            card.style.transform = 'rotateY(180deg)';
+            flipping = false;
+            
+          }, 2000); // Duración de la segunda animación
+        }   
+        
+      });
+  });
+
+  
 
   //Swipe
   const DECISION_THRESHOLD = 240

@@ -8,12 +8,12 @@
           
           <!-- GUILMON -->
             <article class="container">
-              <div class="card">
+              <div class="card uno">
 
-                <img class="front front-guilmon type" id="Guilmon"
+                <img class="front front-guilmon" id="Guilmon"
               src="./resources/digimons/Guilmon.webp"
               alt="partB"/>              
-              <h2 id="digiName">Guilmon <span id="digiPower">8</span></h2>
+              <h2 id="digiName" class="data">Guilmon <span id="digiPower">8</span></h2>
               <div class="choice nope">NOPE</div>
               <div class="choice like">LIKE</div>
 
@@ -26,12 +26,12 @@
 
           <!-- VEEMON -->
             <article class="container">
-              <div class="card">
+              <div class="card dos">
 
-                <img class="front front-veemon type" id="Veemon"
+                <img class="front front-veemon" id="Veemon"
               src="./resources/digimons/veemon.webp"
               alt="partB"/>              
-              <h2 id="digiName">Veemon <span id="digiPower">15</span></h2>
+              <h2 id="digiName" class="data">Veemon <span id="digiPower">15</span></h2>
               <div class="choice nope">NOPE</div>
               <div class="choice like">LIKE</div>
 
@@ -44,12 +44,12 @@
 
           <!-- GABUMON --> 
             <article class="container">
-              <div class="card">
+              <div class="card three">
 
-                <img class="front front-gabumon type" id="Gabumon"
+                <img class="front front-gabumon" id="Gabumon"
               src="./resources/digimons/Gabumon.webp"
               alt="partB"/>              
-              <h2 id="digiName">Gabumon <span id="digiPower">20</span></h2>
+              <h2 id="digiName" class="data">Gabumon <span id="digiPower">20</span></h2>
               <div class="choice nope">NOPE</div>
               <div class="choice like">LIKE</div>
 
@@ -212,7 +212,7 @@ footer {
   }
 }
 .cards {
-    background: #2374FF;
+    background: #D70202;
     position: relative;
     margin: 0 auto;
     height: 100%;
@@ -344,7 +344,7 @@ footer {
   box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
   position: absolute;
   backface-visibility: hidden;
-  transform: scale(1.5);
+  transform: scale(1.2);
 }
 
 .front-veemon {
@@ -369,10 +369,23 @@ footer {
   let veemon = document.querySelector('.front-veemon')
   let gabumon = document.querySelector('.front-gabumon')
 
-  let allDigimons = []
-  allDigimons.push(guilmon);
-  allDigimons.push(veemon);
-  allDigimons.push(gabumon);
+  let allDigimons = [
+  {
+    nombre: "Gallantmont",
+    power: "40",
+    src: "./resources/digimons/Gallantmont.webp"
+  },
+  {
+    nombre: "Exveemon",
+    power: "32",
+    src: "./resources/digimons/exVeemon.webp"
+  },
+  {
+    nombre: "Garurumon",
+    power: "37",
+    src: "./resources/digimons/Garurumon.webp"
+  }
+];
 
   document.addEventListener('DOMContentLoaded', function() {
     let evolutionButton = document.getElementById('evolution');
@@ -387,23 +400,92 @@ footer {
     const digiName = document.getElementById('digiName');
     const digiPower = document.getElementById('digiPower');
 
-    // Crear un nuevo elemento span
-    const newSpan = document.createElement('span')
-    newSpan.textContent = '25';
-
     evolutionButton.addEventListener('click', function() {
+      let numDigimon = -1;   //Enumeración de los digimons.
+      
+
       console.log("El botón está activado.")
-      let typeDigimons = document.querySelectorAll('.type')
-      let primeraCartaVisible;
-      typeDigimons.forEach(function(typeDigimon){
-        if(isElementVisible(typeDigimon)){
-          primeraCartaVisible = typeDigimon
+
+      let typeCards = document.querySelectorAll('.card') // CARD  
+      let typeDigimons = document.querySelectorAll('.front') //IMG
+      let data = document.querySelectorAll('.data')
+      
+
+      data.forEach(function(datas){
+        if(isElementVisible(datas)){
+          console.log(datas)
         }
       })
 
-      if (primeraCartaVisible) {
+      let primerDigimonVisible;
+      let primerCartaVisible;
+      let primerData;
+
+      data.forEach(function(datas){
+        if(isElementVisible(datas)){
+          primerData = datas
+        }
+      })
+
+      typeDigimons.forEach(function(typeDigimon){
+        if(isElementVisible(typeDigimon)){
+          primerDigimonVisible = typeDigimon
+          numDigimon++
+          console.log(typeDigimon, "digimon: " + numDigimon)
+        }
+      })
+      typeCards.forEach(function(typeCard){
+        if(isElementVisible(typeCard)){
+          primerCartaVisible = typeCard
+          return
+        }
+      })
+
+      // Crear un nuevo elemento span
+    let newSpan = document.createElement('span')
+      let power = allDigimons[numDigimon].power;
+      newSpan.textContent = power
+      console.log("Poder: ", newSpan)
+
+      if (primerDigimonVisible && primerCartaVisible) {
             // Aquí puedes hacer lo que necesites con la primera carta visible
-            console.log("La primera carta visible es:", primeraCartaVisible);
+            console.log("La primera carta visible es: ", primerDigimonVisible);
+            console.log("El primer div encontrado es: ", primerCartaVisible)
+            console.log("Primer primer data: ", primerData)
+      // EVOLUTION    
+            if (!flipping) {
+        flipping = true;
+        primerCartaVisible.style.transform = 'rotateY(1440deg)'; // Gira 4 veces
+        primerDigimonVisible.setAttribute("src", "./resources/digimons/partsCard/cardA.webp");
+        primerDigimonVisible.style.transform = "rotateY(0deg)";
+
+        setTimeout(function() {
+
+          primerCartaVisible.style.transform = 'rotateY(0deg)';
+          flipping = false;
+        }, 20000); // Duración de la primera animación
+        
+        setTimeout(function() {
+
+            // Cambia el fondo del lado A al finalizar la animación
+            
+
+            primerCartaVisible.style.transform = 'rotateY(180deg)';
+            flipping = false;
+            
+            setTimeout(function() {
+              primerCartaVisible.style.transform = 'rotateY(0deg)'; // Otra vuelta completa
+              //
+        primerDigimonVisible.setAttribute("src", allDigimons[numDigimon].src);    
+        primerDigimonVisible.style.transform = "";
+        primerData.textContent=allDigimons[numDigimon].nombre
+        primerData.appendChild(newSpan);
+        flipping = false;
+              //
+      }, 1000);   
+
+          }, 2000); // Duración de la segunda animación
+        }   
         } else {
             console.log("No se encontró ninguna carta visible.");
         }
@@ -418,7 +500,10 @@ footer {
             rect.right <= (window.innerWidth || document.documentElement.clientWidth)
         );
     }
-      });
+    
+    // EVOLUTION 
+    
+    });
   });
 
   //Swipe

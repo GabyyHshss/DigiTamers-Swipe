@@ -1,7 +1,7 @@
 <link rel="shortcut icon" href="./resources/digi-logo.webp"/>
 <main>
   <footer>
-    <button class="is-zap is-big" id="evolution" aria-label="fav"></button>
+    <button class="is-evolution is-big" id="evolution" aria-label="fav"></button>
   </footer>
     <section>
         <div class="cards" >
@@ -110,6 +110,7 @@ main {
     position: relative;
     justify-content: center;
     align-items: center;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
 }
 
 section {
@@ -199,15 +200,20 @@ footer {
 
       }
       &.is-remove{
+        visibility: hidden;
         background-position: -75px -8px;
       }
-      &.is-zap {
-        background-position: -183px -4px;
-    background-size: 450px;
-    height: 84px;
-    width: 86px;
+      &.is-evolution {
+        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+        background-position: 25% 0px;
+    background-size: 520%;
+    height: 40%;
+    width: 44%;
     margin-right: 43%;
     margin-top: 3px;
+      }
+      &.is-fav {
+        visibility: hidden;
       }
   }
 }

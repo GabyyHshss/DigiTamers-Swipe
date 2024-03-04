@@ -317,7 +317,7 @@ footer {
   backface-visibility: hidden;
 }
 
-.back {
+.back{
   transform: rotateY(180deg);
   object-fit: fill;
 }
@@ -334,6 +334,10 @@ footer {
     let evolutionButton = document.getElementById('evolution');
     let card = document.querySelector('.card');
     let sideA = document.querySelector('.front');
+
+    let sideB = document.querySelector('.front');
+
+
     let flipping = false;
 
     const digiName = document.getElementById('digiName');
@@ -347,8 +351,11 @@ footer {
       if (!flipping) {
         flipping = true;
         card.style.transform = 'rotateY(1440deg)'; // Gira 4 veces
-  
+        sideB.setAttribute("src", "./resources/digimons/partsCard/cardA.webp");
+        sideB.style.transform = "rotateY(0deg)";
+
         setTimeout(function() {
+
           card.style.transform = 'rotateY(0deg)';
           flipping = false;
         }, 20000); // Duración de la primera animación
@@ -356,20 +363,24 @@ footer {
         setTimeout(function() {
 
             // Cambia el fondo del lado A al finalizar la animación
-            sideA.setAttribute("src", "./resources/digimons/exVeemon.webp");
-            digiName.textContent='ExVeemon'
-            digiName.appendChild(newSpan);
+            
 
             card.style.transform = 'rotateY(180deg)';
             flipping = false;
             
+            setTimeout(function() {
+        card.style.transform = 'rotateY(0deg)'; // Otra vuelta completa
+        sideA.setAttribute("src", "./resources/digimons/exVeemon.webp");    
+        sideA.style.transform = "";
+        digiName.textContent='ExVeemon'
+            digiName.appendChild(newSpan);
+        flipping = false;
+      }, 1000); 
+
           }, 2000); // Duración de la segunda animación
-        }   
-        
+        }         
       });
   });
-
-  
 
   //Swipe
   const DECISION_THRESHOLD = 240

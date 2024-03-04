@@ -5,10 +5,30 @@
   </footer>
     <section>
         <div class="cards" >
+          
+          <!-- GUILMON -->
             <article class="container">
               <div class="card">
 
                 <img class="front"
+              src="./resources/digimons/Guilmon.webp"
+              alt="partB"/>              
+              <h2 id="digiName">Guilmon <span id="digiPower">8</span></h2>
+              <div class="choice nope">NOPE</div>
+              <div class="choice like">LIKE</div>
+
+              <img class="back"
+              src="./resources/digimons/partsCard/cardB.webp"
+              alt="partB"/>                          
+
+              </div>
+            </article>
+
+          <!-- VEEMON -->
+            <article class="container">
+              <div class="card">
+
+                <img class="front front-veemon"
               src="./resources/digimons/veemon.webp"
               alt="partB"/>              
               <h2 id="digiName">Veemon <span id="digiPower">15</span></h2>
@@ -21,17 +41,26 @@
 
               </div>
             </article>
-            
-            <!--
-            <article>
-              <img class="card-side side-b"
-              src="./resources/digimons/partsCard/cardB.webp"
-              alt="partB"/>              <h2>Veemon <span>15</span></h2>
+
+          <!-- GABUMON --> 
+            <article class="container">
+              <div class="card">
+
+                <img class="front"
+              src="./resources/digimons/Gabumon.webp"
+              alt="partB"/>              
+              <h2 id="digiName">Gabumon <span id="digiPower">20</span></h2>
               <div class="choice nope">NOPE</div>
               <div class="choice like">LIKE</div>
-            </article>
-          -->
-            <span>HOla xd</span>
+
+              <img class="back"
+              src="./resources/digimons/partsCard/cardB.webp"
+              alt="partB"/>                          
+
+              </div>
+            </article>  
+
+            <span>No hay más digimons cerca de Usted. </span>
         </div>
           
     </section>
@@ -315,6 +344,11 @@ footer {
   box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
   position: absolute;
   backface-visibility: hidden;
+  transform: scale(1.5);
+}
+
+.front-veemon {
+  transform: scale(2);
 }
 
 .back{

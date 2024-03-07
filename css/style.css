@@ -32,9 +32,208 @@ main {
   filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.8));
 }
 
+footer {
+  
+  flex-basis: 29.8%;
+    height: 33.8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 3%;
+    gap: 36%;
+    
+  & button {
+    background: url(./resources/digiIconsPro.webp) no-repeat;
+    background-size: 220px;
+    border-radius: 50%;
+    border: 0;
+    cursor: pointer;
+    transition: scale .3s ease;
+    margin: 1px 0px 1px 4px;
+
+      &:hover {
+        scale: 1.1;
+        width: 68px;
+      }
+
+      &.is-big {
+        background-position: -234px -6px;
+    background-size: 400px;
+    margin-bottom: 3px;
+    margin-right: 1px;
+    filter: contrast(0.9);
+      }
+      &.is-evolution {
+        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 1.2));
+        background-position: 25% 0px;
+    background-size: 520%;
+    height: 40%;
+    width: 44%;
+    margin-right: 43%;
+    margin-top: 3px;
+      }
+  }
+}
+
 section {
   width: 28%; /* Ancho del 26% del contenedor para dispositivos */
   aspect-ratio: 1/1; /* Relación de aspecto 1:1 para mantener la forma cuadrada */
-  background-color: blue;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background: #f6f6f6;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+
+  display: flex;
+}
+
+.cards {
+  background: url(./resources/digimons/digiEggDefault.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  position: relative;
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  
+  &>span {
+    font-family: 'Insomnia';
+    display: flex;
+    place-content: center;
+  }
+
+  & article {
+  border-radius: 8px;
+  cursor: grab;
+  overflow: hidden;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+    height: 100%;
+    perspective: 1000px;
+    object-fit: cover;
+
+  &.go-left {
+    transform: translateX(-150%) rotate(-20deg) !important;
+  }
+
+  &.go-right {
+    transform: translateX(150%) rotate(20deg) !important;
+  }
+
+  &.go-left,
+  &.go-right {
+    transition: transform .5s ease, rotate .3s ease;
+  }
+
+  &.reset {
+    transition: transform .3s ease;
+    transform: translateX(0) !important;
+  }
+  & .choice {
+    border-radius: 8px;
+    color: black;
+    border: 4px solid;
+    z-index: 9999;
+    position: absolute;
+    top: 15px;
+    right: 50px;
+    opacity: 0;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    width: fit-content;
+    &.nope {
+      border-color: #ff6e63;
+      color: #ff6e63;
+      transform: rotate(15deg);
+      right: 10px;
+    }
+
+    &.like {
+      border-color: #63ff68;
+      color: #63ff68;
+      left: 15px;
+      transform: rotate(-15deg);
+    }
+  }
+  & h2 {
+    color: white;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+    width: 100%;
+    padding: 12%;
+    z-index: 3;
+    background: linear-gradient(to top,
+        #00000088 20%,
+        transparent 40%);
+    font-size: 14px;
+  }
+
+  & span {
+    margin-left: 2px;
+    font-size: 2.3vh;
+    line-height: 1.4;
+    font-weight: 400;
+  }
+  }
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+  transform: scale(1.5);
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+  backface-visibility: hidden;
+  display: flex;
+  position: absolute;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+  object-fit: cover;
+}
+
+.card {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  transition: transform 1500ms;
+  transform-style: preserve-3d;
+}
+
+.front,
+.back {
+  height: 100%;
+  width: 100%;
+  border-radius: 2rem;
+  box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
+  position: absolute;
+  backface-visibility: hidden;
+  transform: scale(1.2);
+}
+
+.front-veemon {
+  transform: scale(2);
+}
+
+.back{
+  transform: rotateY(180deg);
+  object-fit: fill;
 }
 

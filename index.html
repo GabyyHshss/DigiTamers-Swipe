@@ -10,6 +10,7 @@
   <title>DigiTest</title>
 </head>
 <body>
+  
   <main>
     <footer>
       <button class="is-evolution is-big" id="evolution" aria-label="fav"></button>
@@ -33,9 +34,45 @@
 
           </div>
         </article>
+        <!-- VEEMON -->
+        <article class="container">
+          <div class="card dos">
+
+            <img class="front front-veemon" id="Veemon"
+          src="./resources/digimons/veemon.webp"
+          alt="partB"/>              
+          <h2 id="digiName" class="data">Veemon <span id="digiPower">15</span></h2>
+          <div class="choice nope">NOPE</div>
+          <div class="choice like">LIKE</div>
+
+          <img class="back"
+          src="./resources/digimons/partsCard/cardB.webp"
+          alt="partB"/>                          
+
+          </div>
+        </article>
+
+      <!-- GABUMON -->
+      <article class="container">
+        <div class="card three">
+
+          <img class="front front-gabumon" id="Gabumon"
+        src="./resources/digimons/Gabumon.webp"
+        alt="partB"/>              
+        <h2 id="digiName" class="data">Gabumon <span id="digiPower">20</span></h2>
+        <div class="choice nope">NOPE</div>
+        <div class="choice like">LIKE</div>
+
+        <img class="back"
+        src="./resources/digimons/partsCard/cardB.webp"
+        alt="partB"/>                          
+
+        </div>
+      </article> 
         <span>Coming Soon</span>
       </div>
     </section>
+    <footer></footer>
   </main>
   <script>
 
@@ -119,9 +156,11 @@
         })
   
         // Crear un nuevo elemento span
+
       let newSpan = document.createElement('span')
-        let power = allDigimons[numDigimon].power;
-        newSpan.textContent = power
+      let power = allDigimons[numDigimon].power;
+      newSpan.textContent = power
+        
         console.log("Poder: ", newSpan)
   
         if (primerDigimonVisible && primerCartaVisible) {
@@ -157,7 +196,6 @@
           primerDigimonVisible.style.transform = "";
           
           primerData.textContent=allDigimons[numDigimon].nombre
-  
           primerData.appendChild(newSpan);
           flipping = false;
                 //

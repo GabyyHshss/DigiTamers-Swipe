@@ -5,6 +5,7 @@
 }
 
 body {
+  display: grid;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     overflow: hidden;
     user-select: none;
@@ -33,47 +34,25 @@ main {
 }
 
 footer {
-  
-  flex-basis: 29.8%;
-    height: 33.8%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    margin-left: 3%;
-    gap: 36%;
-    
+  flex-basis: 12%;
+  aspect-ratio: 1/1;
+  margin-right: 17%; 
+
   & button {
-    background: url(./resources/digiIconsPro.webp) no-repeat;
-    background-size: 220px;
+    background: url(../resources/digiIconsPro.webp) no-repeat;
+    background-size: 500%;
+    background-position: 25% 0%;
     border-radius: 50%;
     border: 0;
     cursor: pointer;
     transition: scale .3s ease;
-    margin: 1px 0px 1px 4px;
-
+    margin: 12% 0% 0% 10%;
+    width: 100%;
+    height: 100%;
       &:hover {
         scale: 1.1;
-        width: 68px;
       }
-
-      &.is-big {
-        background-position: -234px -6px;
-    background-size: 400px;
-    margin-bottom: 3px;
-    margin-right: 1px;
-    filter: contrast(0.9);
-      }
-      &.is-evolution {
-        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 1.2));
-        background-position: 25% 0px;
-    background-size: 520%;
-    height: 40%;
-    width: 44%;
-    margin-right: 43%;
-    margin-top: 3px;
-      }
-  }
+    }
 }
 
 section {
@@ -90,7 +69,8 @@ section {
 }
 
 .cards {
-  background: url(./resources/digimons/digiEggDefault.webp);
+  
+  background: url(../resources/digimons/digiEggDefault.webp);
   background-size: cover;
   background-repeat: no-repeat;
 
@@ -103,6 +83,12 @@ section {
     font-family: 'Insomnia';
     display: flex;
     place-content: center;
+    /* font-size: 15px; */
+    text-align: center;
+    margin-top: 12px;
+    font-size: 11px;
+    color: white;
+    letter-spacing: 2px;
   }
 
   & article {
@@ -178,12 +164,12 @@ section {
     background: linear-gradient(to top,
         #00000088 20%,
         transparent 40%);
-    font-size: 14px;
+    font-size: 1.5vh;
   }
 
   & span {
     margin-left: 2px;
-    font-size: 2.3vh;
+    font-size: 1.5vh;
     line-height: 1.4;
     font-weight: 400;
   }

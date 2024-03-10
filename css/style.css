@@ -15,6 +15,18 @@ body {
     margin: 0 auto;
 }
 
+#smoke-bkg {
+  height: 100%;
+  width: auto;
+  z-index: -10;
+  position: absolute;
+  left: -50px; /* Valor negativo para que el div se salga del body hacia la izquierda */
+  right: -50px; /* Valor negativo para que el div se salga del body hacia la derecha */
+  background-color: rgba(255, 0, 0, 0.5); /* Color de fondo para demostración */
+  top: 50%; /* Centra el div verticalmente */
+  transform: translateY(-50%);
+}
+
 header {
   display: flex;
   justify-content: center;

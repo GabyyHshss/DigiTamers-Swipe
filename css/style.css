@@ -5,16 +5,28 @@
 }
 
 body {
-  display: grid;
+    background: url(../resources/concrete.png);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     overflow: hidden;
     user-select: none;
-    background: #e5e5e5;
     /* min-width: 100vh; */
     height: 100vh;
     width: 50vh;
     margin: 0 auto;
-    border: 1px solid red;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20%;
+  top: 5%;
+  position: relative;
+}
+
+#title {
+  position: relative;
+  transform: scale(1);
 }
 
 main {
@@ -24,7 +36,7 @@ main {
   align-items: center;
 
   width: 100%;
-  height: 100%;
+  height: 65%;
   background: url(../resources/digivice.webp);
   background-size: contain;
   background-position: center;

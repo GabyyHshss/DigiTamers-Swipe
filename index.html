@@ -8,86 +8,91 @@
   <link rel="stylesheet" href="https://db.onlinewebfonts.com/c/b2437a24f47a94383eb02858f8a4df97?family=Insomnia">
 
   <title>DigiTest</title>
+  
   <script type="importmap">
-    {
-      "imports": {
-        "three": "https://unpkg.com/three@<version>/build/three.module.js",
-        "three/addons/": "https://unpkg.com/three@<version>/examples/jsm/"
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@v0.153.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@v0.153.0/examples/jsm/"
+        }
       }
-    }
-  </script>
+    </script>
 </head>
 <body>
+  <script type="module" src="./main.js"></script>
+  <script src="script.js"></script>
   <div id="smoke-bkg"></div>
-  <header>
-    <!-- TITLE -->
-    <img src="resources/digi-logo.webp" id="title"></img>
-  </header>
-  <main>
-    <footer>
-      <button class="is-evolution is-big" id="evolution" aria-label="fav"></button>
-    </footer>
-    <section>
-       
-      <div class="cards">
-        <!-- GUILMON -->
-        <article class="container">
-          <div class="card uno">
-
-            <img class="front front-guilmon" id="Guilmon"
-          src="./resources/digimons/Guilmon.webp"
-          alt="partB"/>              
-          <h2 id="digiName" class="data">Guilmon <span id="digiPower">8</span></h2>
-          <div class="choice nope">NOPE</div>
-          <div class="choice like">LIKE</div>
-
-          <img class="back"
-          src="./resources/digimons/partsCard/cardB.webp"
-          alt="partB"/>                          
-
+    <div id="container">
+      
+      <header>
+        <!-- TITLE -->
+        <img src="resources/digi-logo.webp" id="title"></img>
+      </header>
+      <main>
+        <footer>
+          <button class="is-evolution is-big" id="evolution" aria-label="fav"></button>
+        </footer>
+        <section>
+           
+          <div class="cards">
+            <!-- GUILMON -->
+            <article class="container">
+              <div class="card uno">
+    
+                <img class="front front-guilmon" id="Guilmon"
+              src="./resources/digimons/Guilmon.webp"
+              alt="partB"/>              
+              <h2 id="digiName" class="data">Guilmon <span id="digiPower">8</span></h2>
+              <div class="choice nope">NOPE</div>
+              <div class="choice like">LIKE</div>
+    
+              <img class="back"
+              src="./resources/digimons/partsCard/cardB.webp"
+              alt="partB"/>                          
+    
+              </div>
+            </article>
+            <!-- VEEMON -->
+            <article class="container">
+              <div class="card dos">
+    
+                <img class="front front-veemon" id="Veemon"
+              src="./resources/digimons/veemon.webp"
+              alt="partB"/>              
+              <h2 id="digiName" class="data">Veemon <span id="digiPower">15</span></h2>
+              <div class="choice nope">NOPE</div>
+              <div class="choice like">LIKE</div>
+    
+              <img class="back"
+              src="./resources/digimons/partsCard/cardB.webp"
+              alt="partB"/>                          
+    
+              </div>
+            </article>
+    
+          <!-- GABUMON -->
+          <article class="container">
+            <div class="card three">
+    
+              <img class="front front-gabumon" id="Gabumon"
+            src="./resources/digimons/Gabumon.webp"
+            alt="partB"/>              
+            <h2 id="digiName" class="data">Gabumon <span id="digiPower">20</span></h2>
+            <div class="choice nope">NOPE</div>
+            <div class="choice like">LIKE</div>
+    
+            <img class="back"
+            src="./resources/digimons/partsCard/cardB.webp"
+            alt="partB"/>                          
+    
+            </div>
+          </article> 
+            <span>Coming Soon</span>
           </div>
-        </article>
-        <!-- VEEMON -->
-        <article class="container">
-          <div class="card dos">
-
-            <img class="front front-veemon" id="Veemon"
-          src="./resources/digimons/veemon.webp"
-          alt="partB"/>              
-          <h2 id="digiName" class="data">Veemon <span id="digiPower">15</span></h2>
-          <div class="choice nope">NOPE</div>
-          <div class="choice like">LIKE</div>
-
-          <img class="back"
-          src="./resources/digimons/partsCard/cardB.webp"
-          alt="partB"/>                          
-
-          </div>
-        </article>
-
-      <!-- GABUMON -->
-      <article class="container">
-        <div class="card three">
-
-          <img class="front front-gabumon" id="Gabumon"
-        src="./resources/digimons/Gabumon.webp"
-        alt="partB"/>              
-        <h2 id="digiName" class="data">Gabumon <span id="digiPower">20</span></h2>
-        <div class="choice nope">NOPE</div>
-        <div class="choice like">LIKE</div>
-
-        <img class="back"
-        src="./resources/digimons/partsCard/cardB.webp"
-        alt="partB"/>                          
-
-        </div>
-      </article> 
-        <span>Coming Soon</span>
-      </div>
-    </section>
-    <footer></footer>
-  </main>
+        </section>
+        <footer></footer>
+      </main>
+    </div>
   
-  <script src="script.js" defer></script>
 </body>
 </html>

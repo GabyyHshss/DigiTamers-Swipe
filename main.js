@@ -15,7 +15,7 @@ const $bkg = document.getElementById('smoke-bkg');
 
     const renderer = new THREE.WebGLRenderer()
     renderer.setSize(w, h)
-    renderer.setClearColor(0xdddddd, 1)
+    renderer.setClearColor(0xff0030, 0.6)
 
     $bkg?.appendChild(renderer.domElement)
 
@@ -65,7 +65,7 @@ const $bkg = document.getElementById('smoke-bkg');
         requestAnimationFrame(animate)
         
         smokeParticles.forEach(particle => {
-            particle.rotation.z += 0.002
+            particle.rotation.z += 0.003
         })
 
         renderer.render(scene, camera)
